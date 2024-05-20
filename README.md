@@ -2,7 +2,7 @@
 
 The project is a simple Image Processor that allows users to upload images, apply filters, and download the processed images. The project is divided into two main components:
 
--   API Services: A set of RESTful APIs built using [Rust](https://www.rust-lang.org/pt-BR) and [Actix](https://actix.rs/) for processing images.
+-   API Services: A set of RESTful APIs built using [Rust](https://www.rust-lang.org/pt-BR) and [Actix](https://actix.rs/) for user authentication and image processing.
 -   Dashboard: A mobile application template built using [Flutter](https://flutter.dev/) and [Rust](https://www.rust-lang.org/pt-BR) with bindings to the API services.
 
 ## API
