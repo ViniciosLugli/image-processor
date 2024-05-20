@@ -1,13 +1,4 @@
 services:
-    postgres:
-        extends:
-            file: docker-compose-db.yml
-            service: postgres
-    redis:
-        extends:
-            file: docker-compose-db.yml
-            service: redis
-
     prisma-generate:
         build:
             context: .
@@ -28,7 +19,7 @@ services:
             context: .
             dockerfile: Dockerfile.base
         tty: true
-        command: cargo auth run
+        command: cargo auth run --release
         volumes:
             - .:/usr/src/app
             - .cache/cargo-cache:/usr/local/cargo/target
@@ -41,10 +32,6 @@ services:
             - '3001:3001'
         env_file:
             - .env
-        environment:
-            RUST_LOG: debug
-            DATABASE_URL: postgresql://postgres:postgres@postgres:5432/postgres?schema=public
-            REDIS_URL: redis://redis:6379
 
     nginx:
         image: nginx:latest
