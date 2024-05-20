@@ -1,0 +1,13 @@
+[package]
+name = "database"
+version = "0.1.0"
+edition = "2021"
+authors = ["ViniciosLugli <vinicioslugli@gmail.com>"]
+
+[dependencies]
+serde = { version = "1.0.202" }
+prisma-client-rust = { git = "https://github.com/Brendonovich/prisma-client-rust", tag = "0.6.11", features = [
+	"postgresql",
+	"migrations",
+	"mocking",
+] }

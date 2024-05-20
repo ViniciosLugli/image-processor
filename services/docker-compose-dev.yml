@@ -1,0 +1,55 @@
+services:
+    postgres:
+        extends:
+            file: docker-compose-db.yml
+            service: postgres
+    redis:
+        extends:
+            file: docker-compose-db.yml
+            service: redis
+
+    prisma-generate:
+        build:
+            context: .
+            dockerfile: Dockerfile.base
+        tty: true
+        command: cargo prisma generate
+        volumes:
+            - .:/usr/src/app
+            - .cache/cargo-cache:/usr/local/cargo/target
+        depends_on:
+            postgres:
+                condition: service_healthy
+            redis:
+                condition: service_healthy
+
+    auth-service:
+        build:
+            context: .
+            dockerfile: Dockerfile.base
+        tty: true
+        command: cargo auth run
+        volumes:
+            - .:/usr/src/app
+            - .cache/cargo-cache:/usr/local/cargo/target
+        depends_on:
+            postgres:
+                condition: service_healthy
+            prisma-generate:
+                condition: service_completed_successfully
+        ports:
+            - '3001:3001'
+        env_file:
+            - .env
+        environment:
+            DATABASE_URL: postgresql://postgres:postgres@postgres:5432/postgres?schema=public
+            REDIS_URL: redis://redis:6379
+
+    nginx:
+        image: nginx:latest
+        ports:
+            - '3000:3000'
+        volumes:
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+        depends_on:
+            - auth-service
