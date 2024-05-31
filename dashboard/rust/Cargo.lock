@@ -191,9 +191,9 @@ dependencies = [
 
 [[package]]
 name = "flutter_rust_bridge"
-version = "2.0.0-dev.33"
+version = "2.0.0-dev.37"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "293c86d55bf9b6108482f8574517a8e7e032dd1d9260e1f4801c6180fdd2583c"
+checksum = "7bc10f01bad9c10018ecd7c998b35d37e6856ffc62b735ef796c617e2006bf00"
 dependencies = [
  "allo-isolate",
  "android_logger",
@@ -218,9 +218,9 @@ dependencies = [
 
 [[package]]
 name = "flutter_rust_bridge_macros"
-version = "2.0.0-dev.33"
+version = "2.0.0-dev.37"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d852460bc16316c4491a60e1652612f717764d436f3a97f8f1cc7c3b54d9a0dc"
+checksum = "728da530efd18249b5adda2b932a69f92c1d861c18d93dd8b6b9d6df0a2a7d27"
 dependencies = [
  "hex",
  "quote",
@@ -518,6 +518,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6877bb514081ee2a7ff5ef9de3281f14a4dd4bceac4c09388074a6b5df8a139a"
 
 [[package]]
+name = "mime_guess"
+version = "2.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4192263c238a5f0d0c6bfd21f336a313a4ce1c450542449ca191bb657b4642ef"
+dependencies = [
+ "mime",
+ "unicase",
+]
+
+[[package]]
 name = "miniz_oxide"
 version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -679,6 +689,7 @@ dependencies = [
  "js-sys",
  "log",
  "mime",
+ "mime_guess",
  "once_cell",
  "percent-encoding",
  "pin-project-lite",
@@ -721,7 +732,6 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "flutter_rust_bridge",
- "lazy_static",
  "reqwest",
  "serde_json",
 ]
@@ -982,6 +992,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e421abadd41a4225275504ea4d6566923418b7f05506fbc9c0fe86ba7396114b"
 
 [[package]]
+name = "unicase"
+version = "2.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f7d2d4dafb69621809a81864c9c1b864479e1235c0dd4e199924b9742439ed89"
+dependencies = [
+ "version_check",
+]
+
+[[package]]
 name = "unicode-bidi"
 version = "0.3.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1018,6 +1037,12 @@ dependencies = [
  "idna",
  "percent-encoding",
 ]
+
+[[package]]
+name = "version_check"
+version = "0.9.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 
 [[package]]
 name = "want"

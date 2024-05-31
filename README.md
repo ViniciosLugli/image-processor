@@ -11,7 +11,7 @@ The API services are managed by the [nginx](https://www.nginx.com/) web server, 
 
 ### Auth Service
 
-The Auth service is responsible for managing user authentication and authorization. It provides endpoints for user registration, login, and session management.
+The Auth service is responsible for managing user authentication and authorization. It provides endpoints for user registration, login, and session management. The user authentication is done using `sessions cookies`.
 
 #### Endpoints
 
@@ -19,13 +19,23 @@ The Auth service is responsible for managing user authentication and authorizati
 -   `POST /user/login`: Login a user.
 -   `GET /user/`: Get the current user's information.
 
-### Prerequisites
+## Processing Service
+
+The Processing service is responsible for processing the images uploaded by the users and applying filters of grayscale to the images. The service use local storage to save the images temporarily. Is used the lib [photon-rs](https://github.com/silvia-odwyer/photon) to apply the filters.
+
+#### Endpoints
+
+-   `POST /processor/image`: Upload an image to be processed.
+
+### Running the API Services
+
+#### Prerequisites
 
 -   [Docker](https://docs.docker.com/get-docker/) for running the API services in a container.
 
-### Installation and Running
+#### Installation and Running
 
-#### Setup
+##### Setup
 
 1. Get the project:
 
@@ -62,23 +72,23 @@ The Auth service is responsible for managing user authentication and authorizati
     Start the services with nginx using the following command:
 
     ```sh
-    docker compose -f docker-compose-dev.yml up --builçd
+    docker compose -f docker-compose-dev.yml up --build
     ```
 
     This docker compose also starts a postgres and redis container. If you want to start only the services, you can use the following command:
 
     ```sh
-    docker compose -f docker-compose-prod.yml up --build services
+    docker compose -f docker-compose-prod.yml up --build <auth-service|processor-service>
     ```
 
-### Usage
+#### Usage
 
 Once the server is running, it will listen on [localhost:3000](http://localhost:3000). You can interact with the API using any HTTP client.
 
 #### API Endpoints
 
 You can use the [Insomnia](https://insomnia.rest/) collection file [assets/insomnia_collection.json](assets/Insomnia.json) to test the API and see the available endpoints.
-![image](https://github.com/ViniciosLugli/image-processor/assets/40807526/d3e63d5e-7494-40cd-9e6a-5d16a60792a2)
+![image](https://github.com/ViniciosLugli/image-processor/assets/40807526/d3e02da1-7354-4300-98cd-b17e3ba93a26)
 
 ## Dashboard Component (`dashboard/`)
 
@@ -158,5 +168,5 @@ Follow the detailed setup instructions in the [Flutter Mobile Template README](h
 The following video demonstrates the current state of the project:
 
 <div align="center">
-  <video src="https://github.com/ViniciosLugli/image-processor/assets/40807526/61123783-8568-4245-b4a4-6fbf2d583a9b" />
+  <video src="https://github.com/ViniciosLugli/image-processor/assets/40807526/0fceb9cb-bd20-4d4f-8979-1fec62885594" />
 </div>

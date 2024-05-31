@@ -22,6 +22,7 @@ model User {
 enum LogType {
     USER_REGISTER
     USER_LOGIN
+    PROCESS_IMAGE
 }
 
 model Log {

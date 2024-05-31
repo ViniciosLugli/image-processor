@@ -1,0 +1,24 @@
+[package]
+name = "processor-service"
+version = "0.1.0"
+edition = "2021"
+authors = ["ViniciosLugli <vinicioslugli@gmail.com>"]
+
+[dependencies]
+actix-web = "4.6.0"
+actix-multipart = "0.6.1"
+serde = { version = "1.0.202", features = ["derive"] }
+serde_json = "1.0.117"
+log = "0.4.21"
+pretty_env_logger = "0.5.0"
+dotenvy = "0.15.7"
+chrono = { version = "0.4.30", features = ["serde"] }
+photon-rs = "0.3.2"
+database = { path = "../database" }
+prisma-client-rust = { git = "https://github.com/Brendonovich/prisma-client-rust", tag = "0.6.11", features = [
+	"postgresql",
+	"migrations",
+	"mocking",
+] }
+actix-session = { version = "0.9.0", features = ["redis-rs-session"] }
+uuid = "1.8.0"

@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
+  awesome_notifications:
+    dependency: "direct main"
+    description:
+      name: awesome_notifications
+      sha256: d9e46ce7f5171ee1e9b1c5bc6dc40bd77528561f592842ce97ce3a0a9ae155ef
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.3+1"
   boolean_selector:
     dependency: transitive
     description:
@@ -159,10 +167,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_rust_bridge
-      sha256: "2bf072117fe975e18aa418234572aa6c60a0513141dc4239a5409eebd0a6a597"
+      sha256: d8a8419099180408b224235e2e2aa386b67ebfd59cc65610d618bb06fb640954
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0-dev.33"
+    version: "2.0.0-dev.37"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -271,6 +279,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.19.0"
   js:
     dependency: transitive
     description:
